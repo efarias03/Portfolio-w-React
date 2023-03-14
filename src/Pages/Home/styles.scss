@@ -1,0 +1,55 @@
+@use "../../global-styles/global.scss";
+
+@mixin flexCenter(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+};
+
+
+body {
+    background: #D5DFE9;
+}
+
+.header-div {
+    @include flexCenter();
+    justify-content: space-between;
+
+    .nav-brand {
+        padding-left: 2rem;
+        cursor: pointer;
+
+        h1 {
+            font-family: "Browess Sovar";
+            text-decoration: line-through;
+            font-size: 2rem;
+            color: #FF3A2A;
+        }
+    }
+
+    .menu-div {
+        
+    }
+
+    ul {
+        width: 30rem;
+        padding-right: 1rem;
+        gap: 1.5rem;
+        list-style: none;
+        @include flexCenter();
+
+        li {
+            cursor: pointer;
+            font-family: "Browess Sovar", sans-serif;
+            font-size: 1.5rem;
+            color: #000;
+            transition: .5s ease;
+        }
+
+        li:hover {
+            color: #FF3A2A;
+            transition: .5s ease;
+        }
+    }
+
+}
