@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Do+Hyeon&family=Poppins:wght@400;600;700&family=Rajdhani:wght@400;500&family=Roboto:wght@400;500&display=swap");
 @font-face {
   font-family: BRO;
-  src: url("../../fonts/BRO/BRO-Bold.otf");
+  src: url("../../src/assets/fonts/BRO/BRO.otf");
 }
 @font-face {
   font-family: Browess Sovar;
-  src: url("../../fonts/BrowessSovar/BrowessSovar.otf");
+  src: url("../../src/assets/fonts/BrowessSovar/BrowessSovar.otf");
 }
 * {
   margin: 0;
