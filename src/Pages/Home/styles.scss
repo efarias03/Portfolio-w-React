@@ -1,19 +1,76 @@
 @use "../../globalStyles/global.scss";
 
-@mixin flexCenter(){
+@mixin flexCenter() {
     display: flex;
     justify-content: center;
     align-items: center;
 };
 
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
 
-body {
-    background: #D5DFE9;
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.preloader{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 200vh;
+    background-color: #D5DFE9;
+    z-index: 1;
+
+    .loader-tile {
+        background-color: #000;
+        width: 100%;
+        height: 100%;
+        
+
+        transition: .5s ease;
+    }
+}
+
+.preloader:hover {
+    opacity: 0;
+    transition: 1s;
+    .loader-tile:nth-child(1){
+        transform: translate(0%, -100%);
+        transition: .5s ease;
+    }
+
+    .loader-tile:nth-child(2) {
+        transform: translate(0%, 100%);
+        transition: .5s ease;
+    }
 }
 
 .header-div {
     @include flexCenter();
+    position: fixed;
     justify-content: space-between;
+    width: 100%;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+
 
     .nav-brand {
         padding-left: 2rem;
@@ -25,10 +82,6 @@ body {
             font-size: 2rem;
             color: #FF3A2A;
         }
-    }
-
-    .menu-div {
-        
     }
 
     ul {
@@ -51,5 +104,12 @@ body {
             transition: .5s ease;
         }
     }
+}
 
+
+
+@media (min-width: 425px) {
+    .nav-link {
+        color: greenyellow;
+    }
 }

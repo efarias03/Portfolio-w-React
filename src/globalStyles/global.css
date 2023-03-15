@@ -7,8 +7,24 @@
   font-family: Browess Sovar;
   src: url("../../src/assets/fonts/BrowessSovar/BrowessSovar.otf");
 }
+@font-face {
+  font-family: AIRNT;
+  src: url("../../src/assets/fonts/AIRNT/Airnt.otf");
+}
+@font-face {
+  font-family: "AIRNT Bold";
+  src: url("../../src/assets/fonts/AIRNT/AirntBold.otf");
+}
+@font-face {
+  font-family: AIRNT Quantum;
+  src: url("../../src/assets/fonts/AIRNT/AirntQuantum.otf");
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background: #D5DFE9;
 }/*# sourceMappingURL=global.css.map */

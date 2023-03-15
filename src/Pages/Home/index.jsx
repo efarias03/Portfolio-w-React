@@ -1,8 +1,21 @@
+import { Canvas } from "@react-three/fiber";
+import { Blob } from "../../components/Blob";
+
 import "./styles.css";
 
 export function Home() {
     return (
         <div className="container">
+            <div className="preloader">
+                <div className="loader-tile">
+                </div>
+                <div className="loader-tile">
+                </div>
+            </div>
+            
+            <Canvas>
+                <Blob />
+            </Canvas>
             <header>
                 <div className="header-div">
                     <div className="nav-brand">
@@ -20,6 +33,7 @@ export function Home() {
                     </nav>
                 </div>
             </header>
+
 
             <main>
                 <article>

@@ -1,11 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Do+Hyeon&family=Poppins:wght@400;600;700&family=Rajdhani:wght@400;500&family=Roboto:wght@400;500&display=swap");
 @font-face {
   font-family: BRO;
-  src: url("../../fonts/BRO/BRO-Bold.otf");
+  src: url("../../src/assets/fonts/BRO/BRO.otf");
 }
 @font-face {
   font-family: Browess Sovar;
-  src: url("../../fonts/BrowessSovar/BrowessSovar.otf");
+  src: url("../../src/assets/fonts/BrowessSovar/BrowessSovar.otf");
+}
+@font-face {
+  font-family: AIRNT;
+  src: url("../../src/assets/fonts/AIRNT/Airnt.otf");
+}
+@font-face {
+  font-family: "AIRNT Bold";
+  src: url("../../src/assets/fonts/AIRNT/AirntBold.otf");
+}
+@font-face {
+  font-family: AIRNT Quantum;
+  src: url("../../src/assets/fonts/AIRNT/AirntQuantum.otf");
 }
 * {
   margin: 0;
@@ -17,11 +29,67 @@ body {
   background: #D5DFE9;
 }
 
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100vh;
+  width: 100vw;
+}
+
+.preloader {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 200vh;
+  background-color: #D5DFE9;
+  z-index: 1;
+}
+.preloader .loader-tile {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s ease;
+}
+
+.preloader:hover {
+  opacity: 0;
+  transition: 1s;
+}
+.preloader:hover .loader-tile:nth-child(1) {
+  transform: translate(0%, -100%);
+  transition: 0.5s ease;
+}
+.preloader:hover .loader-tile:nth-child(2) {
+  transform: translate(0%, 100%);
+  transition: 0.5s ease;
+}
+
 .header-div {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
   justify-content: space-between;
+  width: 100%;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 .header-div .nav-brand {
   padding-left: 2rem;
@@ -52,4 +120,10 @@ body {
 .header-div ul li:hover {
   color: #FF3A2A;
   transition: 0.5s ease;
+}
+
+@media (min-width: 425px) {
+  .nav-link {
+    color: greenyellow;
+  }
 }/*# sourceMappingURL=styles.css.map */
