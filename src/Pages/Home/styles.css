@@ -40,24 +40,16 @@ body {
   overflow: hidden;
 }
 
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  height: 100vh;
-  width: 100vw;
-}
-
 .preloader {
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100vw;
-  height: 200vh;
-  background-color: #D5DFE9;
+  width: 100%;
+  height: 200%;
+  background-color: rgba(255, 60, 42, 0.4666666667);
+  transition: 1s;
   z-index: 1;
 }
 .preloader .loader-tile {
@@ -67,15 +59,16 @@ canvas {
   transition: 0.5s ease;
 }
 
-.preloader:hover {
+.preloader.loaded {
   opacity: 0;
   transition: 1s;
+  pointer-events: none;
 }
-.preloader:hover .loader-tile:nth-child(1) {
+.preloader.loaded .loader-tile:nth-child(1) {
   transform: translate(0%, -100%);
   transition: 0.5s ease;
 }
-.preloader:hover .loader-tile:nth-child(2) {
+.preloader.loaded .loader-tile:nth-child(2) {
   transform: translate(0%, 100%);
   transition: 0.5s ease;
 }
@@ -115,7 +108,7 @@ canvas {
   font-family: "Browess Sovar", sans-serif;
   font-size: 1.5rem;
   color: #000;
-  transition: 0.5s ease;
+  transition: 1s ease;
 }
 .header-div ul li:hover {
   color: #FF3A2A;

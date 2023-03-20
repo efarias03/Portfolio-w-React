@@ -33,7 +33,7 @@ export function Blob() {
     return (
         <mesh
             ref={mesh}
-            scale={0.5}
+            scale={0.8}
             position={[0, 0, 0]}
             onPointerOver={() => (hover.current = true)}
             onPointerOut={() => (hover.current = false)}

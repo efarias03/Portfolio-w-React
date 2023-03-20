@@ -17,15 +17,6 @@
     overflow: hidden;
 }
 
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    height: 100vh;
-    width: 100vw;
-}
-
 
 .preloader{
     position: fixed;
@@ -33,9 +24,10 @@ canvas {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100vw;
-    height: 200vh;
-    background-color: #D5DFE9;
+    width: 100%;
+    height: 200%;
+    background-color: #ff3c2a77;
+    transition: 1s;
     z-index: 1;
 
     .loader-tile {
@@ -48,9 +40,10 @@ canvas {
     }
 }
 
-.preloader:hover {
+.preloader.loaded{
     opacity: 0;
     transition: 1s;
+    pointer-events: none;
     .loader-tile:nth-child(1){
         transform: translate(0%, -100%);
         transition: .5s ease;
@@ -96,7 +89,7 @@ canvas {
             font-family: "Browess Sovar", sans-serif;
             font-size: 1.5rem;
             color: #000;
-            transition: .5s ease;
+            transition: 1s ease;
         }
 
         li:hover {
