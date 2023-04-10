@@ -19,7 +19,7 @@
 }
 
 @font-face {
-    font-family: AIRNT Quantum ;
+    font-family: AIRNT Quantum;
     src: url("../../src/assets/fonts/AIRNT/AirntQuantum.otf");
 }
 
@@ -29,10 +29,145 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: none;
 }
 
 body {
-    background: #D5DFE9;
+    background: #000000;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Custom Cursor */
+.inner-cursor {
+    position: fixed;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+
+    display: flex;
+
+    transform: translate(-50%, -50%);
+
+    background-color: #fff;
+    mix-blend-mode: difference;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    transition: width .5s, height .5s, background 1s linear, opacity .5s;
+    z-index: 7;
+}
+
+.inner-cursor.grow {
+    width: 20px;
+    height: 20px;
+
+    opacity: .1;
+
+    transition: width .5s, height .5s, opacity .5s;
+}
+
+.inner-cursor.decrease {
+    width: 5px;
+    height: 5px;
+
+    transition: width .5s ease, height .5s ease;
 }
 
 
+.outer-cursor {
+    position: fixed;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+
+    transform: translate(-50%, -50%);
+
+    border: 1px solid #fcfcfc;
+    border-radius: 50%;
+
+    pointer-events: none;
+    transition: width .5s, height .5s, background 1s linear, mix-blend-mode .5s;
+    z-index: 7;
+}
+
+
+.outer-cursor.outer-decrease {
+    width: 20px;
+    height: 20px;
+
+    transition: width .5s ease, height .5 ease;
+}
+
+
+/* Nav Menu Checkbox */
+
+.hamburger {
+    cursor: pointer;
+
+    input {
+        display: none;
+    }
+
+    svg {
+        /* The size of the SVG defines the overall size */
+        height: 3em;
+        /* Define the transition for transforming the SVG */
+        transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    }    
+
+    input:checked+svg {
+        transform: rotate(-45deg);
+    }
+
+    input:checked+svg .line-top-bottom {
+        stroke-dasharray: 20 300;
+        stroke-dashoffset: -32.42;
+    }
+}
+
+.line {
+    fill: none;
+    stroke: white;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3;
+    /* Define the transition for transforming the Stroke */
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+        stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+    stroke-dasharray: 12 63;
+}
+
+
+/* Mobile Breakpoint */
+
+@media (max-width:600px) {
+    body {
+        background-color: #660000;
+    }
+
+    .header-div {
+        .nav-flex-container {
+            display: flex;
+            align-items: center;
+    
+            .nav-menu {
+                display: block;
+                opacity: 1;
+                transition: .5s ease-in-out;
+            }
+    
+            ul {
+                display: none;
+                transition: .5s ease-in-out;
+            }
+        }
+    }
+}

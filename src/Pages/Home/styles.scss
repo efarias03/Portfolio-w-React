@@ -4,7 +4,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-};
+}
+
+;
 
 .container {
     position: relative;
@@ -18,33 +20,37 @@
 }
 
 
-.preloader{
-    position: fixed;
+.preloader {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 200%;
-    background-color: #ff3c2a77;
+    height: 100%;
+    background-color: #ffffff00;
     transition: 1s;
     z-index: 1;
+    pointer-events: none;
 
     .loader-tile {
-        background-color: #000;
+        background-color: #ffffff;
         width: 100%;
         height: 100%;
-        
+
 
         transition: .5s ease;
+
     }
+
+
 }
 
-.preloader.loaded{
+.preloader.loaded {
     opacity: 0;
     transition: 1s;
     pointer-events: none;
-    .loader-tile:nth-child(1){
+
+    .loader-tile:nth-child(1) {
         transform: translate(0%, -100%);
         transition: .5s ease;
     }
@@ -53,6 +59,11 @@
         transform: translate(0%, 100%);
         transition: .5s ease;
     }
+}
+
+.tiles-div {
+    width: 100%;
+    height: 100%;
 }
 
 .header-div {
@@ -67,42 +78,48 @@
 
     .nav-brand {
         padding-left: 2rem;
-        cursor: pointer;
 
-        h1 {
+        a {
             font-family: "Browess Sovar";
             text-decoration: line-through;
             font-size: 2rem;
-            color: #FF3A2A;
+            color: #09f069;
         }
     }
 
-    ul {
-        width: 30rem;
-        padding-right: 1rem;
-        gap: 1.5rem;
-        list-style: none;
-        @include flexCenter();
+    .nav-flex-container {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
 
-        li {
-            cursor: pointer;
-            font-family: "Browess Sovar", sans-serif;
-            font-size: 1.5rem;
-            color: #000;
-            transition: 1s ease;
+        .nav-menu {
+            display: none;
         }
 
-        li:hover {
-            color: #FF3A2A;
-            transition: .5s ease;
+        ul {
+            width: 30rem;
+            padding-right: 1rem;
+            gap: 1.5rem;
+            list-style: none;
+            @include flexCenter();
+            transition: .5s ease-in-out;
+    
+            li {
+                a {
+                    text-decoration: none;
+                    font-family: "Browess Sovar", sans-serif;
+                    font-size: 1.5rem;
+                    color: #ffffff;
+                    transition: 1s ease;
+                }
+    
+    
+                a:hover {
+                    color: #09f069;
+                    transition: .5s ease;
+                }
+            }
         }
     }
 }
 
-
-
-@media (min-width: 425px) {
-    .nav-link {
-        color: greenyellow;
-    }
-}

@@ -23,12 +23,120 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: none;
 }
 
 body {
-  background: #D5DFE9;
+  background: #000000;
 }
 
+a {
+  text-decoration: none;
+}
+
+/* Custom Cursor */
+.inner-cursor {
+  position: fixed;
+  left: 10px;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  mix-blend-mode: difference;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: width 0.5s, height 0.5s, background 1s linear, opacity 0.5s;
+  z-index: 7;
+}
+
+.inner-cursor.grow {
+  width: 20px;
+  height: 20px;
+  opacity: 0.1;
+  transition: width 0.5s, height 0.5s, opacity 0.5s;
+}
+
+.inner-cursor.decrease {
+  width: 5px;
+  height: 5px;
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.outer-cursor {
+  position: fixed;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  transform: translate(-50%, -50%);
+  border: 1px solid #fcfcfc;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: width 0.5s, height 0.5s, background 1s linear, mix-blend-mode 0.5s;
+  z-index: 7;
+}
+
+.outer-cursor.outer-decrease {
+  width: 20px;
+  height: 20px;
+  transition: width 0.5s ease, height 0.5 ease;
+}
+
+/* Nav Menu Checkbox */
+.hamburger {
+  cursor: pointer;
+}
+.hamburger input {
+  display: none;
+}
+.hamburger svg {
+  /* The size of the SVG defines the overall size */
+  height: 3em;
+  /* Define the transition for transforming the SVG */
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  /* Define the transition for transforming the Stroke */
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 600px) {
+  body {
+    background-color: #660000;
+  }
+  .header-div .nav-flex-container {
+    display: flex;
+    align-items: center;
+  }
+  .header-div .nav-flex-container .nav-menu {
+    display: block;
+    pointer-events: all;
+    opacity: 1;
+    transition: 0.5s ease-in-out;
+  }
+  .header-div .nav-flex-container ul {
+    display: none;
+    transition: 0.5s ease-in-out;
+  }
+}
 .container {
   position: relative;
   display: flex;
@@ -41,19 +149,19 @@ body {
 }
 
 .preloader {
-  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 200%;
-  background-color: rgba(255, 60, 42, 0.4666666667);
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0);
   transition: 1s;
   z-index: 1;
+  pointer-events: none;
 }
 .preloader .loader-tile {
-  background-color: #000;
+  background-color: #ffffff;
   width: 100%;
   height: 100%;
   transition: 0.5s ease;
@@ -73,6 +181,11 @@ body {
   transition: 0.5s ease;
 }
 
+.tiles-div {
+  width: 100%;
+  height: 100%;
+}
+
 .header-div {
   display: flex;
   justify-content: center;
@@ -86,15 +199,22 @@ body {
 }
 .header-div .nav-brand {
   padding-left: 2rem;
-  cursor: pointer;
 }
-.header-div .nav-brand h1 {
+.header-div .nav-brand a {
   font-family: "Browess Sovar";
   text-decoration: line-through;
   font-size: 2rem;
-  color: #FF3A2A;
+  color: #09f069;
 }
-.header-div ul {
+.header-div .nav-flex-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.header-div .nav-flex-container .nav-menu {
+  display: none;
+}
+.header-div .nav-flex-container ul {
   width: 30rem;
   padding-right: 1rem;
   gap: 1.5rem;
@@ -102,21 +222,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.5s ease-in-out;
 }
-.header-div ul li {
-  cursor: pointer;
+.header-div .nav-flex-container ul li a {
+  text-decoration: none;
   font-family: "Browess Sovar", sans-serif;
   font-size: 1.5rem;
-  color: #000;
+  color: #ffffff;
   transition: 1s ease;
 }
-.header-div ul li:hover {
-  color: #FF3A2A;
+.header-div .nav-flex-container ul li a:hover {
+  color: #09f069;
   transition: 0.5s ease;
-}
-
-@media (min-width: 425px) {
-  .nav-link {
-    color: greenyellow;
-  }
 }/*# sourceMappingURL=styles.css.map */
