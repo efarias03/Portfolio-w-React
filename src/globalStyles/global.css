@@ -19,67 +19,31 @@
   font-family: AIRNT Quantum;
   src: url("../../src/assets/fonts/AIRNT/AirntQuantum.otf");
 }
+@font-face {
+  font-family: Madjoe;
+  src: url("../../src/assets/fonts/Madjoe/Madjoe.ttf");
+}
+@font-face {
+  font-family: KidoProject;
+  src: url("../../src/assets/fonts/KidoProject/KidoProject/KidoProject.otf");
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none;
 }
 
-body {
+html, body {
+  cursor: auto;
+  scroll-behavior: smooth;
   background: #000000;
+  color: #fff;
+  height: 200vh;
+  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
-}
-
-/* Custom Cursor */
-.inner-cursor {
-  position: fixed;
-  left: 10px;
-  width: 10px;
-  height: 10px;
-  display: flex;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  mix-blend-mode: difference;
-  border-radius: 50%;
-  pointer-events: none;
-  transition: width 0.5s, height 0.5s, background 1s linear, opacity 0.5s;
-  z-index: 7;
-}
-
-.inner-cursor.grow {
-  width: 20px;
-  height: 20px;
-  opacity: 0.1;
-  transition: width 0.5s, height 0.5s, opacity 0.5s;
-}
-
-.inner-cursor.decrease {
-  width: 5px;
-  height: 5px;
-  transition: width 0.5s ease, height 0.5s ease;
-}
-
-.outer-cursor {
-  position: fixed;
-  left: 10px;
-  width: 25px;
-  height: 25px;
-  transform: translate(-50%, -50%);
-  border: 1px solid #fcfcfc;
-  border-radius: 50%;
-  pointer-events: none;
-  transition: width 0.5s, height 0.5s, background 1s linear, mix-blend-mode 0.5s;
-  z-index: 7;
-}
-
-.outer-cursor.outer-decrease {
-  width: 20px;
-  height: 20px;
-  transition: width 0.5s ease, height 0.5 ease;
 }
 
 /* Nav Menu Checkbox */
@@ -119,8 +83,11 @@ a {
 
 /* Mobile Breakpoint */
 @media (max-width: 600px) {
-  body {
-    background-color: #660000;
+  .inner-cursor {
+    display: none;
+  }
+  .outer-cursor {
+    display: none;
   }
   .header-div .nav-flex-container {
     display: flex;
@@ -134,5 +101,36 @@ a {
   .header-div .nav-flex-container ul {
     display: none;
     transition: 0.5s ease-in-out;
+  }
+}
+.welcome-div {
+  transform: translate(0%, -170%);
+  transition: 0.5s ease;
+}
+.welcome-div .welcome-text {
+  font-size: 1.5rem;
+}
+.welcome-div .welcome-text h1 {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.container .underline-svg {
+  transform: translate(0%, 150%);
+}
+
+::-webkit-scrollbar {
+  width: 0.5em;
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #09f069;
+}
+
+@media (max-width: 526px) {
+  .welcome-div {
+    transform: translate(0%, -100%);
+    transition: 0.5s ease;
   }
 }/*# sourceMappingURL=global.css.map */

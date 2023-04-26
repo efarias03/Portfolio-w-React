@@ -1,0 +1,36 @@
+
+/* Custom Cursor */
+.inner-cursor {
+    position: fixed;
+
+    width: 10px;
+    height: 10px;
+
+    transform: translate(-50%, -50%);
+
+    background-color: #fff;
+    mix-blend-mode: difference;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 7;
+}
+
+
+.outer-cursor {
+    position: fixed;
+
+    width: 25px;
+    height: 25px;
+
+    transform: translate(-50%, -50%);
+
+    border: 1px solid #fcfcfc;
+    border-radius: 50%;
+
+    pointer-events: none;
+    
+    z-index: 7;
+}

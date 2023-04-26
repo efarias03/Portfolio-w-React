@@ -6,24 +6,93 @@
     align-items: center;
 }
 
-;
+@keyframes dash {
+    from {
+        stroke-dashoffset: 2.1;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
 
 .container {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter();
     flex-direction: column;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+
+
+    .arrow-div,
+    .underline-svg {
+        position: absolute;
+
+        svg {
+            transform: scale(2);
+            width: 150px;
+
+            path {
+                fill: none;
+                stroke: #09f069;
+                stroke-width: 1px;
+                stroke-dasharray: 2.1;
+                stroke-dashoffset: 2.1;
+
+                animation: dash 5s linear forwards;
+                animation-delay: 4s;
+            }
+        }
+    }
+
+    .underline-svg {
+        transform: translateY(300%);
+
+        svg {
+            transform: scale(5);
+
+            path {
+                animation: dash 3.5s ease-out forwards;
+                animation-delay: 1.8s;
+            }
+        }
+    }
+
+
+    .actual-professional-stats {
+        @include flexCenter();
+
+        position: fixed;
+        left: 0;
+        transform: rotate(90deg) translateY(110px);
+
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.2rem;
+
+        background-color: #09f069;
+        padding: .2rem .8rem;
+
+        transition: transform 1s;
+
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+
+        .char {
+            transform: translateY(115px);
+            transition: transform 2s;
+            transition-delay: 1s;
+        }
+    }
 }
 
 
 .preloader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: fixed;
+    @include flexCenter();
     flex-direction: column;
     width: 100%;
     height: 100%;
@@ -38,7 +107,7 @@
         height: 100%;
 
 
-        transition: .5s ease;
+        transition: 1s ease;
 
     }
 
@@ -47,17 +116,17 @@
 
 .preloader.loaded {
     opacity: 0;
-    transition: 1s;
+    transition: 1.2s;
     pointer-events: none;
 
     .loader-tile:nth-child(1) {
         transform: translate(0%, -100%);
-        transition: .5s ease;
+        transition: .8s linear;
     }
 
     .loader-tile:nth-child(2) {
         transform: translate(0%, 100%);
-        transition: .5s ease;
+        transition: .8s linear;
     }
 }
 
@@ -71,19 +140,26 @@
     position: fixed;
     justify-content: space-between;
     width: 100%;
-    top: 0%;
+    top: 3.5%;
     left: 50%;
     transform: translate(-50%, 0%);
 
 
     .nav-brand {
+        transform: translate(-120%, 0%);
         padding-left: 2rem;
+
+        transition: transform 1s;
 
         a {
             font-family: "Browess Sovar";
-            text-decoration: line-through;
             font-size: 2rem;
             color: #09f069;
+
+            b {
+                font-size: 2.8rem;
+                font-family: "KidoProject";
+            }
         }
     }
 
@@ -92,34 +168,92 @@
         align-items: center;
         flex-wrap: nowrap;
 
+
+
         .nav-menu {
             display: none;
         }
 
         ul {
+            transform: translate(100%, 0%);
             width: 30rem;
             padding-right: 1rem;
             gap: 1.5rem;
             list-style: none;
             @include flexCenter();
-            transition: .5s ease-in-out;
-    
+            transition: 1s ease-in-out;
+
             li {
                 a {
                     text-decoration: none;
-                    font-family: "Browess Sovar", sans-serif;
+                    font-family: "Madjoe", sans-serif;
                     font-size: 1.5rem;
                     color: #ffffff;
                     transition: 1s ease;
                 }
-    
-    
+
+
                 a:hover {
                     color: #09f069;
                     transition: .5s ease;
                 }
             }
         }
+
+        .main-svg-menu-transition {
+            position: absolute;
+            display: block;
+
+            top: 50%;
+            right: 20%;
+            transform: translate(200%, 50%);
+
+            svg {
+                transform: scale(2.5);
+                width: 100vw;
+            }
+        }
+
+        .second-svg-menu-transition {
+            position: absolute;
+            display: block;
+            transform: translate(500%, 200%);
+
+            top: 50%;
+            right: 20%;
+
+            svg {
+                transform: scale(7);
+                width: 100vw;
+            }
+        }
     }
 }
 
+
+.welcome-div {
+    @include flexCenter();
+
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+
+    .welcome-text {
+        @include flexCenter();
+        font-family: "Poppins", sans-serif;
+        text-transform: uppercase;
+
+        position: relative;
+        font-size: 2rem;
+
+
+        filter: brightness(10) blur(.2px);
+
+        h1 {
+            text-align: center;
+            transform: translateY(200px);
+            transition: transform .5s;
+        }
+    }
+
+
+}

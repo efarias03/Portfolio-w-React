@@ -1,94 +1,67 @@
-import { Canvas } from "@react-three/fiber";
 import { useEffect, useState } from "react";
-
-import { Loader } from "../../Components/Rive/RiveLoader";
 
 import "./styles.css";
 
+import { Cursor } from "../../Components/Cursor";
+
+import SplitType from 'split-type';
+import debounce from 'lodash/debounce'
+
+import { gsap } from "gsap";
 
 export function Home() {
     const [loaded, setLoaded] = useState(false);
-    const coords = { x: 0, y: 0 };
-    const circles = document.querySelectorAll(".circle");
-    let innerCursor = document.querySelector(".inner-cursor");
-    let outerCursor = document.querySelector(".outer-cursor");
-    const links = document.querySelectorAll("a");
-
+    const text = new SplitType(".actual-professional-stats");
 
     useEffect(() => {
         window.addEventListener("load", () => {
             setLoaded(true);
         })
-    }, [])
+    }, []);
 
-
-    /* Move Cursor */
-    circles.forEach(function (circle) {
-        circle.x = 0;
-        circle.y = 0;
+    gsap.to(".char", {
+        y: 0,
+        stagger: 0.05,
+        delay: 0.8,
+        duration: .1
     });
 
-    window.addEventListener("mousemove", function (e) {
-        coords.x = e.clientX;
-        coords.y = e.clientY;
+    gsap.to(".actual-professional-stats", {
+        x: -65,
+        delay: 2,
+        duration: .1
     });
 
-    function moveCursor() {
-        let x = coords.x;
-        let y = coords.y;
+    gsap.to(".nav-brand", {
+        x: 0,
+        delay: 2.2,
+        duration: .1
+    });
 
+    gsap.to(".nav-ul", {
+        x: 0,
+        stagger: .05,
+        delay: 2,
+        duration: .2
+    });
 
-        circles.forEach(function (circle, index) {
-            circle.style.left = x + "px";
-            circle.style.top = y + "px";
-            circle.x = x;
-            circle.y = y;
+    gsap.to(".welcome-text", {
+        y: -100,
+        delay: 2,
+        duration: .8
+    });
 
-            const nextCircle = circles[index + 1] || circles[0];
-            x += (nextCircle.x - x) * 0.8;
-            y += (nextCircle.y - y) * 0.8;
-        });
+    gsap.to(".main-svg-menu-transition", {
+        x: -170,
+        delay: 2,
+        duration: 2
+    });
 
-        requestAnimationFrame(moveCursor);
-    }
-
-    moveCursor();
-
-    /* Cursor Click Animation */
-
-    document.addEventListener("click", mouseClickAnimation);
-
-    function mouseClickAnimation(e) {
-        innerCursor.classList.remove("decrease");
-        outerCursor.classList.remove("outer-decrease");
-        document.addEventListener("mousedown", () => {
-            innerCursor.classList.add("decrease");
-            outerCursor.classList.add("outer-decrease");
-        });
-        document.addEventListener("mouseup", () => {
-            innerCursor.classList.remove("decrease");
-            outerCursor.classList.remove("outer-decrease");
-        });
-    }
-
-
-    /* Hover Animation */
-
-    links.forEach(link => {
-        growCursor(link);
-    })
-
-
-    function growCursor(x) {
-        x.addEventListener("mouseover", () => {
-            innerCursor.classList.add("grow")
-        })
-        x.addEventListener("mouseleave", () => {
-            innerCursor.classList.remove("grow")
-        })
-    }
-
-
+    gsap.to(".second-svg-menu-transition", {
+        x: 800,
+        delay: 2,
+        duration: 1
+    });
 
 
     return (
@@ -107,14 +80,25 @@ export function Home() {
                     <div className="nav-brand">
                         <h1>
                             <a href="">
-                                Enzo Farias.
+                                Enz<b>o</b>Farias.
                             </a>
                         </h1>
                     </div>
 
                     <nav>
                         <div className="nav-flex-container">
-                            <ul>
+                            <div className="main-svg-menu-transition menu-bg">
+                                <svg viewBox="0 0 199 245" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M25.5831 30.5C-10.4169 29.3 0.916448 10.3333 11.0831 1H197.583V214C200.416 221.333 194.683 236.8 149.083 240C92.0831 244 49.0831 250.5 39.5831 225.5C30.0831 200.5 147.083 171 82.0831 169C17.0831 167 -9.41689 112.5 32.0831 96C73.5831 79.5 70.5831 32 25.5831 30.5Z" fill="#09F069" stroke="#09F069" strokeLinejoin="round" />
+                                </svg>
+                            </div>
+
+                            <div className="second-svg-menu-transition menu-bg">
+                                <svg xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 35.5C-7.19999 19.9 12.8333 5.66667 25 0.5H84V204C97 212.667 107.5 228.1 45.5 220.5C-16.5 212.9 -0.333328 202 15.5 197.5C38.3333 195.833 74 190 34 180C-6 170 5 155.167 15.5 149C37.5 139.667 71.4 120.4 31 118C-9.4 115.6 0.166675 92.6667 10 81.5C17.1667 72.6667 27.2 51.1 10 35.5Z" fill="#09F069" stroke="#09F069" strokeLinejoin="round" />
+                                </svg>
+                            </div>
+                            <ul className="nav-ul">
                                 <li className="nav-link">
                                     <a href="">Home</a>
                                 </li>
@@ -143,32 +127,32 @@ export function Home() {
                 </div>
             </header>
 
+            <div className="welcome-div">
+                <section id="about" className="glitch welcome-text">
+                    <div className="welcome-text">
+                        <h1 id="my-text">Welcome to my portfolio!</h1>
+                    </div>
+                </section>
+            </div>
 
-            <main>
-                <article>
-                    <section id="about">
+            <div className="underline-svg">
+                <svg viewBox="0 0 138 50" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 3.00001C48.8333 1.50001 143 -0.599986 137 3.00001C129.5 7.50001 4.5 0.5 9.5 6C14.5 11.5 115.5 5 117 7.5C118.5 10 32.5 9.5 33 17C33.5 24.5 91 7 95 20.5C99 34 38 19.5 51 34C51.5 34.8333 54.3 36.1 61.5 34.5C68.7 32.9 70.8333 33.8333 71 34.5V40.5V49C69 47.1667 65.5 43.4 67.5 43C70 42.5 70.5 35 73 42C73 42.1667 73.3 42.6 74.5 43C75.7 43.4 73.3333 46.8333 72 48.5" strokeLinejoin="round" pathLength="1" />
+                </svg>
+            </div>
 
-                    </section>
+            <div className="actual-professional-stats">
+                <a href="https://www.linkedin.com/in/enzo-farias-b24866219/">Available for work!</a>
+            </div>
 
-                    <section id="projects">
+            <section id="projects">
 
-                    </section>
-                </article>
-
-                <aside>
-                    <div id="github-aside-link"></div>
-                    <div id="linkedin-aside-link"></div>
-                    <div id="dribbble-aside-link"></div>
-                    <div id="behance-aside-link"></div>
-                </aside>
-            </main>
+            </section>
 
             <footer>
 
             </footer>
-            <div className="circle inner-cursor"></div>
-            <div className="circle outer-cursor"></div>
-
+            < Cursor />
         </div>
 
     )
