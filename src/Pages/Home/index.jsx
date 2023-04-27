@@ -15,19 +15,7 @@ export function Home() {
     useEffect(() => {
         window.addEventListener("load", () => {
             setLoaded(true);
-
-            setTimeout(() => {
-                gsap.to(".upper-tile", {
-                    y: -1000,
-                    duration: 1.5
-                });
-            
-                gsap.to(".bottom-tile", {
-                    y: 1000,
-                    duration: 1.5
-                });
-            })
-        }, "500");
+        })
     }, []);
 
 
@@ -84,14 +72,6 @@ export function Home() {
 
     return (
         <div className="container">
-
-            <div className={`preloader ${loaded ? "" : ""}`}>
-                <div className={`loader-tile ${loaded ? "upper-tile" : ""}`}>
-                </div>
-                <div className={`loader-tile ${loaded ? "bottom-tile" : ""}`}>
-                </div>
-            </div>
-
 
             <header>
                 <div className="header-div">
