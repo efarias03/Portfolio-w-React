@@ -21,11 +21,4 @@
   border-radius: 50%;
   pointer-events: none;
   z-index: 7;
-}
-
-@media (max-width: 600px) {
-  .inner-cursor,
-  .outer-cursor {
-    display: none;
-  }
 }/*# sourceMappingURL=style.css.map */

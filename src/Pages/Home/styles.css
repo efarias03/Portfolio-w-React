@@ -34,7 +34,6 @@
 }
 
 html, body {
-  cursor: auto;
   scroll-behavior: smooth;
   background: #000000;
   color: #fff;
@@ -182,7 +181,7 @@ a {
 }
 .container .underline-svg svg path {
   animation: dash 3.5s ease-out forwards;
-  animation-delay: 1.8s;
+  animation-delay: 2s;
 }
 .container .actual-professional-stats {
   display: flex;
@@ -268,6 +267,7 @@ a {
   top: 50%;
   right: 20%;
   transform: translate(200%, 50%);
+  opacity: 0;
 }
 .header-div .nav-flex-container .main-svg-menu-transition svg {
   transform: scale(2.5);
@@ -279,6 +279,7 @@ a {
   transform: translate(500%, 200%);
   top: 50%;
   right: 20%;
+  opacity: 0;
 }
 .header-div .nav-flex-container .second-svg-menu-transition svg {
   transform: scale(7);

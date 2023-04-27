@@ -1,69 +1,61 @@
-import { useEffect, useState } from "react";
-
+import { Cursor } from "../../Components/Cursor";
+import SplitType from 'split-type';
+import { gsap } from "gsap";
 import "./styles.css";
 
-import { Cursor } from "../../Components/Cursor";
+export const Home = () => {
+    const delayedCall = gsap.delayedCall(.1, playAnimations);
 
-import SplitType from 'split-type';
+    function playAnimations() {
+        const text = new SplitType("#available-text");
 
-import { gsap } from "gsap";
+        gsap.to(".char", {
+            y: 0,
+            stagger: 0.1,
+            delay: 0.8,
+            duration: 1
+        });
 
-export function Home() {
-    const [loaded, setLoaded] = useState(false);
-    const text = new SplitType(".actual-professional-stats");
+        gsap.to(".actual-professional-stats", {
+            x: -65,
+            delay: 2,
+            duration: .5
+        });
 
-    useEffect(() => {
-        window.addEventListener("load", () => {
-            setLoaded(true);
-        })
-    }, []);
+        gsap.to(".nav-brand", {
+            x: 0,
+            delay: 2.2,
+            duration: .1
+        });
+
+        gsap.to(".nav-ul", {
+            x: 0,
+            stagger: .05,
+            delay: 2,
+            duration: .2
+        });
+
+        gsap.to(".welcome-text", {
+            y: -100,
+            delay: 2,
+            duration: .8
+        });
+
+        gsap.to(".main-svg-menu-transition", {
+            x: -170,
+            delay: 1.6,
+            duration: 2.5
+        });
+
+        gsap.to(".second-svg-menu-transition", {
+            x: 800,
+            delay: 2,
+            duration: .65
+        });
 
 
+    }
 
-
-    gsap.to(".char", {
-        y: 0,
-        stagger: 0.05,
-        delay: 0.8,
-        duration: .1
-    });
-
-    gsap.to(".actual-professional-stats", {
-        x: -65,
-        delay: 2,
-        duration: .1
-    });
-
-    gsap.to(".nav-brand", {
-        x: 0,
-        delay: 2.2,
-        duration: .1
-    });
-
-    gsap.to(".nav-ul", {
-        x: 0,
-        stagger: .05,
-        delay: 2,
-        duration: .2
-    });
-
-    gsap.to(".welcome-text", {
-        y: -100,
-        delay: 2,
-        duration: .8
-    });
-
-    gsap.to(".main-svg-menu-transition", {
-        x: -170,
-        delay: 1.6,
-        duration: 2.5
-    });
-
-    gsap.to(".second-svg-menu-transition", {
-        x: 800,
-        delay: 2,
-        duration: .65
-    });
 
 
 
@@ -72,7 +64,6 @@ export function Home() {
 
     return (
         <div className="container">
-
             <header>
                 <div className="header-div">
                     <div className="nav-brand">
@@ -140,7 +131,7 @@ export function Home() {
             </div>
 
             <div className="actual-professional-stats">
-                <a href="https://www.linkedin.com/in/enzo-farias-b24866219/">Available for work!</a>
+                <a id="available-text" href="https://www.linkedin.com/in/enzo-farias-b24866219/">Available for work!</a>
             </div>
 
             <section id="projects">
@@ -150,7 +141,7 @@ export function Home() {
             <footer>
 
             </footer>
-            < Cursor />
+            <Cursor />
         </div>
 
     )

@@ -54,7 +54,7 @@
 
             path {
                 animation: dash 3.5s ease-out forwards;
-                animation-delay: 1.8s;
+                animation-delay: 2s;
             }
         }
     }
@@ -162,6 +162,8 @@
             top: 50%;
             right: 20%;
             transform: translate(200%, 50%);
+            
+            opacity: 0;
 
             svg {
                 transform: scale(2.5);
@@ -176,6 +178,8 @@
 
             top: 50%;
             right: 20%;
+
+            opacity: 0;
 
             svg {
                 transform: scale(7);

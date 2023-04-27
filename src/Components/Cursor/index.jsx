@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react";
-import "./style.css";
-
-
+import "./style.css"
 
 export const Cursor = () => {
     const coords = { x: 0, y: 0 };
-    const [clickActive, setClickActive] = useState(false);
     const cursors = document.querySelectorAll(".cursor");
+    
 
 
     /* Move Cursor */
@@ -41,20 +38,9 @@ export const Cursor = () => {
 
     moveCursor();
 
-    /* Scale Animation */
-
-    const clickAnimation = () => {
-        window.addEventListener("mousedown", (e) => {
-            while (e) {
-                
-            }
-        })
-    }
-
-
     return (
         <>
-            <div className={`cursor inner-cursor ${clickActive ? "" : ""}`}></div>
+            <div className="cursor inner-cursor"></div>
             <div className="cursor outer-cursor"></div>
         </>
     )
