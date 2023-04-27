@@ -83,9 +83,6 @@ a {
 
 /* Mobile Breakpoint */
 @media (max-width: 600px) {
-  body {
-    background-color: #660000;
-  }
   .inner-cursor {
     display: none;
   }
@@ -222,23 +219,16 @@ a {
 }
 .preloader .loader-tile {
   background-color: #ffffff;
-  width: 100%;
+  width: 200%;
   height: 100%;
-  transition: 1s ease;
+  transform: translate(0%, 0%);
+  transition: ease-in;
 }
 
 .preloader.loaded {
   opacity: 0;
-  transition: 1.2s;
+  transition: 2s;
   pointer-events: none;
-}
-.preloader.loaded .loader-tile:nth-child(1) {
-  transform: translate(0%, -100%);
-  transition: 0.8s linear;
-}
-.preloader.loaded .loader-tile:nth-child(2) {
-  transform: translate(0%, 100%);
-  transition: 0.8s linear;
 }
 
 .tiles-div {

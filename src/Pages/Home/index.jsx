@@ -5,7 +5,6 @@ import "./styles.css";
 import { Cursor } from "../../Components/Cursor";
 
 import SplitType from 'split-type';
-import debounce from 'lodash/debounce'
 
 import { gsap } from "gsap";
 
@@ -16,8 +15,23 @@ export function Home() {
     useEffect(() => {
         window.addEventListener("load", () => {
             setLoaded(true);
-        })
+
+            setTimeout(() => {
+                gsap.to(".upper-tile", {
+                    y: -1000,
+                    duration: 1.5
+                });
+            
+                gsap.to(".bottom-tile", {
+                    y: 1000,
+                    duration: 1.5
+                });
+            })
+        }, "500");
     }, []);
+
+
+
 
     gsap.to(".char", {
         y: 0,
@@ -53,24 +67,28 @@ export function Home() {
 
     gsap.to(".main-svg-menu-transition", {
         x: -170,
-        delay: 2,
-        duration: 2
+        delay: 1.6,
+        duration: 2.5
     });
 
     gsap.to(".second-svg-menu-transition", {
         x: 800,
         delay: 2,
-        duration: 1
+        duration: .65
     });
+
+
+
+
 
 
     return (
         <div className="container">
 
-            <div className={`preloader ${loaded ? "loaded" : ""}`}>
-                <div className="loader-tile">
+            <div className={`preloader ${loaded ? "" : ""}`}>
+                <div className={`loader-tile ${loaded ? "upper-tile" : ""}`}>
                 </div>
-                <div className="loader-tile">
+                <div className={`loader-tile ${loaded ? "bottom-tile" : ""}`}>
                 </div>
             </div>
 

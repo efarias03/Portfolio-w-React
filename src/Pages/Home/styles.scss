@@ -103,12 +103,12 @@
 
     .loader-tile {
         background-color: #ffffff;
-        width: 100%;
+        width: 200%;
         height: 100%;
+        transform: translate(0%, 0%);
 
 
-        transition: 1s ease;
-
+        transition: ease-in;
     }
 
 
@@ -116,18 +116,8 @@
 
 .preloader.loaded {
     opacity: 0;
-    transition: 1.2s;
+    transition: 2s;
     pointer-events: none;
-
-    .loader-tile:nth-child(1) {
-        transform: translate(0%, -100%);
-        transition: .8s linear;
-    }
-
-    .loader-tile:nth-child(2) {
-        transform: translate(0%, 100%);
-        transition: .8s linear;
-    }
 }
 
 .tiles-div {
