@@ -83,6 +83,9 @@ a {
 
 /* Mobile Breakpoint */
 @media (max-width: 600px) {
+  .preloader {
+    display: none;
+  }
   .inner-cursor {
     display: none;
   }
