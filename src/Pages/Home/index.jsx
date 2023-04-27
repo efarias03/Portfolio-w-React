@@ -85,17 +85,7 @@ export function Home() {
 
                     <nav>
                         <div className="nav-flex-container">
-                            <div className="main-svg-menu-transition menu-bg">
-                                <svg viewBox="0 0 199 245" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M25.5831 30.5C-10.4169 29.3 0.916448 10.3333 11.0831 1H197.583V214C200.416 221.333 194.683 236.8 149.083 240C92.0831 244 49.0831 250.5 39.5831 225.5C30.0831 200.5 147.083 171 82.0831 169C17.0831 167 -9.41689 112.5 32.0831 96C73.5831 79.5 70.5831 32 25.5831 30.5Z" fill="#09F069" stroke="#09F069" strokeLinejoin="round" />
-                                </svg>
-                            </div>
-
-                            <div className="second-svg-menu-transition menu-bg">
-                                <svg xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M10 35.5C-7.19999 19.9 12.8333 5.66667 25 0.5H84V204C97 212.667 107.5 228.1 45.5 220.5C-16.5 212.9 -0.333328 202 15.5 197.5C38.3333 195.833 74 190 34 180C-6 170 5 155.167 15.5 149C37.5 139.667 71.4 120.4 31 118C-9.4 115.6 0.166675 92.6667 10 81.5C17.1667 72.6667 27.2 51.1 10 35.5Z" fill="#09F069" stroke="#09F069" strokeLinejoin="round" />
-                                </svg>
-                            </div>
+                            
                             <ul className="nav-ul">
                                 <li className="nav-link">
                                     <a href="">Home</a>
